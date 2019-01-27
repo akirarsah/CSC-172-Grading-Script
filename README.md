@@ -1,7 +1,9 @@
 Auto-Grader for Lab 1 of CSC-172 Data Structures and Algorithms
 
 Created by Kelvin Ferreiras, Modified by Vladimir Maksimovski
+
 Created on Nov. 16, 2017
+
 Last Modification on Jan. 26, 2019
 
 
@@ -39,6 +41,7 @@ A sample submission file looks like the following:
 Breaking its name down by underscores, form left to right, its components are:
 
 a) Student netid
+
 b) Lab assignment name.
 
 ## OUTPUT FORMAT
@@ -53,4 +56,5 @@ Ex: A student with NetID jdoe10 with a solution that passes 2/3 test cases, will
 
 ## TODO
 - Error reporting in case task1.java/task2.java doesn't exist 
+
 - Detection for test case tampering.
