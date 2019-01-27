@@ -52,7 +52,7 @@ Output will be recorded in GradeBook.txt. This text file will have two columns o
 
 Ex: A student with NetID jdoe10 with a solution that passes 2/3 test cases, will generate the following output:
 	
-	jdoe10		2/3
+	jdoe10		Evaluation Result:2/3
 
 ## TODO
 - Error reporting in case task1.java/task2.java doesn't exist 
