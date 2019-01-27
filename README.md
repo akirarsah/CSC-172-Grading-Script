@@ -28,7 +28,7 @@ This program automatically grades student submissions for Lab 1 of CSC-172 Data 
 
 3) When execution ends, grades will be compiled in GradeBook.txt.
 
-Note: GradeBook.txt is ERASED after every script execution.
+Note: GradeBook.txt is CLEARED at the start of script execution.
 
 ## INPUT FORMAT
 
