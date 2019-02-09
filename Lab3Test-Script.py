@@ -1,7 +1,7 @@
 # Lab2Test-Script.py
 # Created by Kelvin Ferreiras, modified by Vladimir Maksimovski, Dominick Harasimiuk
 # Created on Nov. 16, 2017
-# Last Modification on Jan. 31, 2019
+# Last Modification on Feb. 9, 2019
 # This program tests Lab2 for CSC-172
 
 import subprocess
@@ -9,11 +9,11 @@ import glob
 import os
 import shlex
 
-currentFile = 'Lab2Test-Script'#Name of script file
+currentFile = 'Lab3Test-Script'#Name of script file
 realPath = os.path.realpath(currentFile)
 dirPath = os.path.dirname(realPath)
 
-labTasks = ['Lab2']
+labTasks = ['Lab3Task1','Lab3Task2','Lab3Task3']#names of tasks (subdirectories of tests folder and names of Java files)
 
 # Take the name of all the .zip files into a list
 submissions=glob.glob(dirPath+ "/*.zip")
@@ -26,7 +26,9 @@ ans_file_extension = '.ans'
 #removes leftover files. FNULL serves to suppress output
 FNULL = open(os.devnull, 'w')
 subprocess.call('rm task*', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
-subprocess.call('rm tests/task1/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+subprocess.call('rm tests/Task1/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+subprocess.call('rm tests/Task2/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+subprocess.call('rm tests/Task3/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
 
 def runTestCase(src, test_in, test_out, test_ans):
     subprocess.call('java ' + src + ' < ' + '\"' + test_in + '\"' + '>' + '\"' + test_out + '\"', shell = True)

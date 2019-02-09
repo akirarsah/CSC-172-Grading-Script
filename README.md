@@ -1,19 +1,19 @@
-Auto-Grader for Lab 2 of CSC-172 Data Structures and Algorithms
+Auto-Grader for Lab 3 of CSC-172 Data Structures and Algorithms
 
 Created by Kelvin Ferreiras, Modified by Vladimir Maksimovski and Dominick Harasiumluk.
 
 Created on Nov. 16, 2017
 
-Last Modification on Jan. 31, 2019
+Last Modification on Feb. 9, 2019
 
 
 ## DESCRIPTION 
 
-This program automatically grades student submissions for Lab 2 of CSC-172 Data Structures and Algorithms. The python script takes zipped submission files from BlackBoard, uncompresses them, and then tests their code. 
+This program automatically grades student submissions for Lab 3 of CSC-172 Data Structures and Algorithms. The python script takes zipped submission files from BlackBoard, uncompresses them, and then tests their code. 
 
 ## Files
 
-*) Lab2Test-Script.py
+*) Lab3Test-Script.py
 	Python script that grades students' .zip files
  
 *) TestResult.txt
@@ -24,7 +24,7 @@ This program automatically grades student submissions for Lab 2 of CSC-172 Data 
 
 1) Get zipped submission files from BlackBoard. All zipped files should be in the same directory as Auto-Grader.py.
 
-2) Execute Lab2Test-Script.py through terminal
+2) Execute Lab3Test-Script.py through terminal
 
 3) When execution ends, grades will be compiled in GradeBook.txt.
 
