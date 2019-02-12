@@ -46,7 +46,7 @@ def runTestCase(src, test_in, test_out, test_ans):
 
 
 def testSubmission(submission, labTasks, test_case_directory):
-    subprocess.call(['unzip', '-o', ''+submission], shell = True)
+    subprocess.call(['unzip', '-o', ''+submission])
 
     # Extract student_id out of zip filename
     list_of_basename_elements = submission.split('_', 1)
