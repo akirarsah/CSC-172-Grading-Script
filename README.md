@@ -21,9 +21,7 @@ This program automatically grades student submissions for Lab 4 of CSC-172 Data 
 *) TestResult.txt
 	Output of the Python Script. Contains the evaluation result in a column format.
 
-*)/tests - contains .ans and .in files for grading.
-
-*)
+*)/tests - contains .ans and .in files for grading. *Lab 4 - also txt files*
 
 
 ## HOW TO RUN 
