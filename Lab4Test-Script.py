@@ -9,11 +9,13 @@ import glob
 import os
 import shlex
 
-currentFile = 'Lab3Test-Script'#Name of script file
+currentFile = 'Lab4Test-Script'#Name of script file
 realPath = os.path.realpath(currentFile)
 dirPath = os.path.dirname(realPath)
 
-labTasks = ['Lab3Task1','Lab3Task2','Lab3Task3']#names of tasks (subdirectories of tests folder and names of Java files)
+labname = 'DNAList' # lab4 only has one main file
+arraysize = '20'
+labTests = ['Lab4Test1','Lab4Test2','Lab4Test3']#names of tests (subdirectories of tests folder and names of command text files)
 
 # Take the name of all the .zip files into a list
 submissions=glob.glob(dirPath+ "/*.zip")
@@ -26,12 +28,13 @@ ans_file_extension = '.ans'
 #removes leftover files. FNULL serves to suppress output
 FNULL = open(os.devnull, 'w')
 subprocess.call('rm task*', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
-subprocess.call('rm tests/Task1/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
-subprocess.call('rm tests/Task2/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
-subprocess.call('rm tests/Task3/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+subprocess.call('rm tests/Lab4Test1/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+subprocess.call('rm tests/Lab4Test2/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+subprocess.call('rm tests/Lab4Test3/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
 
-def runTestCase(src, test_in, test_out, test_ans):
-    subprocess.call('java ' + src + ' < ' + '\"' + test_in + '\"' + '>' + '\"' + test_out + '\"', shell = True)
+#src argument deleted for lab 4 cuz it only has one main file
+def runTestCase(test_in, test_out, test_ans):
+    subprocess.call('java ' + labname + ' < ' + '\"' + test_in + '\"' + '>' + '\"' + test_out + '\"', shell = True)
 
     # Compare compressed and the decompressed output file with the original file
     compare_command = 'diff -w -B ' + '\"' + test_ans + '\"' + ' ' + '\"' + test_out + '\"'
@@ -45,7 +48,7 @@ def runTestCase(src, test_in, test_out, test_ans):
     return False
 
 
-def testSubmission(submission, labTasks, test_case_directory):
+def testSubmission(submission, labTests, test_case_directory):
     subprocess.call(['unzip', '-o', ''+submission])
 
     # Extract student_id out of zip filename
@@ -58,8 +61,11 @@ def testSubmission(submission, labTasks, test_case_directory):
     correctCases = 0
     totalCases = 0
 
-    for task in labTasks:
-        test_cases = glob.glob(dirPath + test_case_directory + task + '/*.in')
+    #running tests on each test directory
+    for test in labTests:
+        test_cases = glob.glob(dirPath + test_case_directory + test + '/*.in')
+        #accounting for multiple .in files?
+        #dunno if we need this but okay
         for testCasePath in test_cases:
             testName = testCasePath[-5:-3]
             testHeader = testCasePath[:-3]
@@ -68,9 +74,9 @@ def testSubmission(submission, labTasks, test_case_directory):
             out_file = testHeader + out_file_extension
             ans_file = testHeader + ans_file_extension
 
-            print('Currently testing ' + task + ', test case #' + testName)
-
-            if runTestCase(task, in_file, out_file, ans_file) is True:
+            print('Currently testing ' + test + ', test case #' + testName)
+            #lab 4 has just one main java file and multiple text files to test.
+            if runTestCase(in_file, out_file, ans_file) is True:
                 print("SUCCESS!")
                 correctCases += 1
             else:
@@ -86,7 +92,7 @@ for currentZip in submissions:
     # Extract file name from path
     name_of_file=os.path.basename(currentZip)
 
-    student_id, correct, total = testSubmission(name_of_file, labTasks, test_case_directory)
+    student_id, correct, total = testSubmission(name_of_file, labTests, test_case_directory)
 
     # Record grade in the TestResult text file
     gradebook = open('TestResult.txt', 'a')

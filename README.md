@@ -1,23 +1,29 @@
-Auto-Grader for Lab 3 of CSC-172 Data Structures and Algorithms
+Auto-Grader for Lab 4 of CSC-172 Data Structures and Algorithms
 
 Created by Kelvin Ferreiras, Modified by Vladimir Maksimovski and Dominick Harasiumluk.
 
 Created on Nov. 16, 2017
 
-Last Modification on Feb. 9, 2019
+Last Modification on Feb. 16, 2019
+    for Lab 4
+    by Akira Sah and Anna Zimmerman
 
 
 ## DESCRIPTION 
 
-This program automatically grades student submissions for Lab 3 of CSC-172 Data Structures and Algorithms. The python script takes zipped submission files from BlackBoard, uncompresses them, and then tests their code. 
+This program automatically grades student submissions for Lab 4 of CSC-172 Data Structures and Algorithms. The python script takes zipped submission files from BlackBoard, uncompresses them, and then tests their code. 
 
 ## Files
 
-*) Lab3Test-Script.py
+*) Lab4Test-Script.py
 	Python script that grades students' .zip files
  
 *) TestResult.txt
 	Output of the Python Script. Contains the evaluation result in a column format.
+
+*)/tests - contains .ans and .in files for grading.
+
+*)
 
 
 ## HOW TO RUN 
@@ -55,6 +61,5 @@ Ex: A student with NetID jdoe10 with a solution that passes 2/3 test cases, will
 	jdoe10		Evaluation Result:2/3
 
 ## TODO
-- Error reporting in case *.java files don't exist 
-
-- Detection for test case tampering.
+- *Lab 4* Code not tested yet
+- *Lab 4* Update .ans files
