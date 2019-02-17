@@ -34,8 +34,8 @@ subprocess.call('rm tests/Lab4Test2/*.out', shell=True, stdout=FNULL, stderr=sub
 subprocess.call('rm tests/Lab4Test3/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
 
 #src argument deleted for lab 4 cuz it only has one main file
-def runTestCase(test_in, test_out, test_ans):
-    subprocess.call('java ' + labname + ' ' + arraysize + ' ' + test_case_directory + '/' + labname + '.txt ' + '>' + '\"' + test_out + '\"', shell=True)
+def runTestCase(test, test_out, test_ans):
+    subprocess.call('java ' + labname + ' ' + arraysize + ' ' + test_case_directory + '/' + test + '.txt ' + '>' + '\"' + test_out + '\"', shell=True)
 
     # Compare compressed and the decompressed output file with the original file
     compare_command = 'diff -w -B ' + '\"' + test_ans + '\"' + ' ' + '\"' + test_out + '\"'
@@ -71,13 +71,12 @@ def testSubmission(submission, labTests, test_case_directory):
             testName = testCasePath[-5:-3]
             testHeader = testCasePath[:-3]
 
-            in_file = testHeader + in_file_extension
             out_file = testHeader + out_file_extension
             ans_file = testHeader + ans_file_extension
 
             print('Currently testing ' + test + ', test case #' + testName)
             #lab 4 has just one main java file and multiple text files to test.
-            if runTestCase(in_file, out_file, ans_file) is True:
+            if runTestCase(test, out_file, ans_file) is True:
                 print("SUCCESS!")
                 correctCases += 1
             else:
