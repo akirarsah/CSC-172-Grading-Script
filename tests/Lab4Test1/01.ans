@@ -1,22 +1,23 @@
-Error occurred while inserting
-Error occurred while inserting
-0       DNA     AATTCCGGAATTCCGG
-2       RNA     UAGACAUGGAUU
-4       DNA     AATTCCGGAATTCCGG
+0	AATTCCGGAATTCCGG DNA
+2	UAGACAUGGAUU RNA
+4	AATTCCGGAATTCCGG DNA
 No sequence to remove at specified position
-0       DNA     AATTCCGGAATTCCGG
-2       RNA     UAGACAUGGAUU
+0	AATTCCGGAATTCCGG DNA
+2	UAGACAUGGAUU RNA
+AATTCCGGAATTCCGG DNA
+UAGACAUGGAUU RNA
 No sequence to print at specified position
-DNA     AATTCCGG
+AATTCCGG DNA
 End index is out of bounds
 Start index is out of bounds
-0       DNA     AATTCCGG
-1       DNA     TACAGACAT
-2       RNA     UAGACAUGGAUU
+End index is out of bounds
+0	AATTCCGG DNA
+1	TACAGACAT DNA
+2	UAGACAUGGAUU RNA
 No sequence to copy at specified position
-0       DNA     AATTCCGG
-1       DNA     AATTCCGG
-2       RNA     UAGACAUGGAUU
+0	AATTCCGG DNA
+1	AATTCCGG DNA
+2	UAGACAUGGAUU RNA
 Cannot transcribe RNA
 No sequence to transcribe at specified position
-RNA	UUAAGGCC
+CCGGAAUU RNA

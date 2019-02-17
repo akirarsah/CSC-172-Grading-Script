@@ -98,3 +98,11 @@ for currentZip in submissions:
     gradebook = open('TestResult.txt', 'a')
     gradebook.write("NetId: " + student_id + "    Evaluation Result: " + str(correct) + '/' + str(total) + "\n")
     gradebook.flush()
+
+    # removes leftover files again for good measures. FOR EVERY STUDENT. -Akira. FNULL serves to suppress output
+    FNULL = open(os.devnull, 'w')
+    subprocess.call('rm *.java', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+    subprocess.call('rm *.class', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+    subprocess.call('rm tests/Lab4Test1/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+    subprocess.call('rm tests/Lab4Test2/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+    subprocess.call('rm tests/Lab4Test3/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
