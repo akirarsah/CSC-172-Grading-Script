@@ -35,7 +35,7 @@ subprocess.call('rm tests/Lab4Test3/*.out', shell=True, stdout=FNULL, stderr=sub
 
 #src argument deleted for lab 4 cuz it only has one main file
 def runTestCase(test, test_out, test_ans):
-    subprocess.call('java ' + labname + ' ' + arraysize + ' ' + test_case_directory + '/' + test + '/' + test + '.txt ' + '>' + '\"' + test_out + '\"', shell=True)
+    subprocess.call('java ' + labname + ' ' + arraysize + ' ' + test + '.txt ' + '>' + '\"' + test_out + '\"', shell=True)
 
     # Compare compressed and the decompressed output file with the original file
     compare_command = 'diff -w -B ' + '\"' + test_ans + '\"' + ' ' + '\"' + test_out + '\"'
