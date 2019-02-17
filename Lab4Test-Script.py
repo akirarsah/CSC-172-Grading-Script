@@ -1,7 +1,7 @@
 # Lab2Test-Script.py
 # Created by Kelvin Ferreiras, modified by Vladimir Maksimovski, Dominick Harasimiuk
 # Created on Nov. 16, 2017
-# Last Modification on Feb. 9, 2019
+# Last Modification on Feb. 16, 2019 by Akira
 # This program tests Lab2 for CSC-172
 
 import subprocess
@@ -18,7 +18,7 @@ arraysize = '20'
 labTests = ['Lab4Test1','Lab4Test2','Lab4Test3']#names of tests (subdirectories of tests folder and names of command text files)
 
 # Take the name of all the .zip files into a list
-submissions=glob.glob(dirPath+ "/*.zip")
+submissions=glob.glob(dirPath + "/*.zip")
 test_case_directory = '/tests/'
 
 in_file_extension = '.in'
@@ -27,14 +27,15 @@ ans_file_extension = '.ans'
 
 #removes leftover files. FNULL serves to suppress output
 FNULL = open(os.devnull, 'w')
-subprocess.call('rm task*', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+subprocess.call('rm *.java', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+subprocess.call('rm *.class', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
 subprocess.call('rm tests/Lab4Test1/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
 subprocess.call('rm tests/Lab4Test2/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
 subprocess.call('rm tests/Lab4Test3/*.out', shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
 
 #src argument deleted for lab 4 cuz it only has one main file
 def runTestCase(test_in, test_out, test_ans):
-    subprocess.call('java ' + labname + ' < ' + '\"' + test_in + '\"' + '>' + '\"' + test_out + '\"', shell = True)
+    subprocess.call('java ' + labname + ' < ' + '\"' + test_in + '\"' + '>' + '\"' + test_out + '\"', shell=True)
 
     # Compare compressed and the decompressed output file with the original file
     compare_command = 'diff -w -B ' + '\"' + test_ans + '\"' + ' ' + '\"' + test_out + '\"'
@@ -90,11 +91,11 @@ def testSubmission(submission, labTests, test_case_directory):
 # Iterate on every .zip file
 for currentZip in submissions:
     # Extract file name from path
-    name_of_file=os.path.basename(currentZip)
+    name_of_file = os.path.basename(currentZip)
 
     student_id, correct, total = testSubmission(name_of_file, labTests, test_case_directory)
 
     # Record grade in the TestResult text file
     gradebook = open('TestResult.txt', 'a')
-    gradebook.write("NetId: "+ student_id + "    Evaluation Result: " + str(correct) + '/' + str(total) + "\n")
+    gradebook.write("NetId: " + student_id + "    Evaluation Result: " + str(correct) + '/' + str(total) + "\n")
     gradebook.flush()
