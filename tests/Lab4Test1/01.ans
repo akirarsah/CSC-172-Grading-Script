@@ -14,7 +14,7 @@ End index is out of bounds
 Start index is out of bounds
 No sequence to clip at specified position
 0       DNA     AATTCCGG
-1       DNA     TACAGACAT
+1       DNA     
 2       RNA     UAGACAUGGAUU
 No sequence to copy at specified position
 0       DNA     AATTCCGG
