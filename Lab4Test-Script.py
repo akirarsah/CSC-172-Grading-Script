@@ -38,6 +38,7 @@ def runTestCase(test, test_out, test_ans):
     subprocess.call('java ' + labname + ' ' + arraysize + ' ' + 'tests/' + test + '/' + test + '.txt ' + '>' + '\"' + test_out + '\"', shell=True)
 
     # Compare compressed and the decompressed output file with the original file
+    #-t converts tabs to spaces, -B removes all spaces, -b ignores whitepsace change, -B ignores blank lines
     compare_command = 'diff -w -B ' + '\"' + test_ans + '\"' + ' ' + '\"' + test_out + '\"'
     compare_command = shlex.split(compare_command)
     compare_result = subprocess.Popen(compare_command, stdout=subprocess.PIPE).communicate()[0].rstrip().decode(
