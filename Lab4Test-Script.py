@@ -35,7 +35,7 @@ subprocess.call('rm tests/Lab4Test3/*.out', shell=True, stdout=FNULL, stderr=sub
 
 #src argument deleted for lab 4 cuz it only has one main file
 def runTestCase(test, test_out, test_ans):
-    subprocess.call('java ' + labname + ' ' + arraysize + ' ' + test + '.txt ' + '>' + '\"' + test_out + '\"', shell=True)
+    subprocess.call('java ' + labname + ' ' + arraysize + ' ' + 'tests/' + test + '/' + test + '.txt ' + '>' + '\"' + test_out + '\"', shell=True)
 
     # Compare compressed and the decompressed output file with the original file
     compare_command = 'diff -w -B ' + '\"' + test_ans + '\"' + ' ' + '\"' + test_out + '\"'
@@ -64,12 +64,12 @@ def testSubmission(submission, labTests, test_case_directory):
 
     #running tests on each test directory
     for test in labTests:
-        test_cases = glob.glob(dirPath + test_case_directory + test + '/*.in')
-        #accounting for multiple .in files?
+        test_cases = glob.glob(dirPath + test_case_directory + test + '/*' + ans_file_extension)
+        #accounting for multiple .ans files?
         #dunno if we need this but okay
         for testCasePath in test_cases:
             testName = testCasePath[-5:-3]
-            testHeader = testCasePath[:-3]
+            testHeader = testCasePath[:-4]
 
             out_file = testHeader + out_file_extension
             ans_file = testHeader + ans_file_extension
